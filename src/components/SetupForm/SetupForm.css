@@ -25,30 +25,3 @@
     height: 26px;
     padding-left: 4px;
 }
-
-.submitButton {
-    width: 200px;
-    height: 30px;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 3px;
-    margin-top: 10px;
-    border: 1px solid #0066cc;
-    background-color: #0099cc;
-    color: #ffffff;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.submitButton:hover {
-    border: 1px solid #0099cc;
-    background-color: #00aacc;
-}
-
-.submitButton:disabled {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
-    cursor: default;
-}

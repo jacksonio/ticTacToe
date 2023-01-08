@@ -9,8 +9,7 @@ export function App() {
   return (
     <div className="App">
       {!setup && (<SetupForm setSetup={setSetup}/>)}
-      {setup && (<Field setup={setup}/>)}
-
+      {setup && (<Field setup={setup} setSetup={setSetup}/>)}
     </div>
   );
 }

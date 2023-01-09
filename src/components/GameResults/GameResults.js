@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { createNewField, getGameResult } from '../helpers';
+import { createNewField, getGameResult } from '../../helpers';
 import './GameResults.css';
 import '../SetupForm/SetupForm.css';
 

@@ -1,3 +1,5 @@
+import { GAME_RESULT } from '../components/constants';
+
 export function useGameResult(field) {
   const tileTypes = field.map(tile => tile.tileType);
 
@@ -15,7 +17,8 @@ export function useGameResult(field) {
   const leftToRightCross = tileTypes[0] && (tileTypes[0] === tileTypes[4]) && (tileTypes[0] === tileTypes[8]) && tileTypes[0];
   const rightToLeftCross = tileTypes[2] && (tileTypes[2] === tileTypes[4]) && (tileTypes[2] === tileTypes[6]) && tileTypes[2];
 
-  const isDraw = tileTypes.filter(type => type).length === tileTypes.length && 'draw';
+  const isDraw = tileTypes.filter(type => type).length === tileTypes.length && GAME_RESULT.DRAW;
+
   return topRowSameFilled || middleRowSameFilled || bottomRowSameFilled
     || leftColumnSameFilled || middleColumnSameFilled || rightColumnSameFilled
     || leftToRightCross || rightToLeftCross

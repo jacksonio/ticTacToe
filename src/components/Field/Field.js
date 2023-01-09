@@ -3,10 +3,19 @@ import './Field.css';
 import { Tile } from '../Tile';
 import { useGameResult } from '../../hooks/useGameResult';
 import { GameResults } from '../GameResults';
-import { createNewField } from '../helpers';
+import { createNewField } from '../../helpers';
+import { GAME_MODES } from '../constants';
 
 export const Field = ({setup, setSetup}) => {
-  const {player1Shape, player2Shape, player1Name, player2Name, player1Color, player2Color, mode} = setup;
+  const {
+    player1Shape,
+    player2Shape,
+    player1Name,
+    player2Name,
+    player1Color,
+    player2Color,
+    mode,
+  } = setup;
 
   const [turn, setTurn] = useState(1);
   const [field, setTileFilledByType] = useState(createNewField());
@@ -14,17 +23,14 @@ export const Field = ({setup, setSetup}) => {
   const gameState = useGameResult(field);
 
   useEffect(() => {
-    if (mode === 'withBot' && !gameState && turn > 0 && turn % 2 === 0) {
+    if (mode === GAME_MODES.WITH_BOT && !gameState && turn > 0 && turn % 2 === 0) {
       function getFreeTile() {
         const id = `#tile${~~(Math.random() * 9)}`;
 
         const tileCandidate = document.body.querySelector(id);
 
-        if (!tileCandidate.classList.contains('clickDisabled')) {
-          setTimeout(() => tileCandidate.click(), 150);
-        } else {
-          getFreeTile();
-        }
+        if (!tileCandidate.classList.contains('clickDisabled')) setTimeout(() => tileCandidate.click(), 150);
+        else getFreeTile();
       }
 
       getFreeTile();
